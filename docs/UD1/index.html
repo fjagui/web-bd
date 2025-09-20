@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>index.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="introducci%C3%B3n-a-las-bases-de-datos">Introducción a las bases de datos.</h1>
+<h2 id="1-sistemas-de-informaci%C3%B3n">1. Sistemas de información</h2>
+<h3 id="11-informaci%C3%B3n">1.1 Información</h3>
+<p><img src="img/ud1_img1.jpg" alt="información">{: style=&quot;float: left; width: 125px; margin: 0 15px 15px 0;&quot;}
+La información es considerada, junto con la materia y con la energía, uno de los componentes fundamentales de la naturaleza, siendo vital para el desarrollo de los pueblos.</p>
+<p>La importancia de la información provoca una fuerte demanda, por lo que es preciso analizar el marco legal e institucional en el que se inscribe el derecho a la información. El deseo de información es un fin en sí mismo, una necesidad de conocer el entorno socio-económico y cultural en el que nos desenvolvemos con fines de investigación y de toma de decisiones, pues el individuo precisa participar en los asuntos públicos, siendo una reivindicación esencial de nuestra época.</p>
+<p>Son muchos los factores que han influido en la transformación del papel que desempeña la información en el marco económico y social. Esto es debido a la elevación del nivel cultural y el deseo de participar en las decisiones públicas por parte del individuo.</p>
+<p>Los gobiernos de los distintos países, al reconocer que la información circula para responder a unas necesidades, como son la necesidad de saber, conocer y elegir, no han podido menos que ocuparse del tema, impulsando y planificando sistemas nacionales de información con el fin de asegurar un flujo de este recurso, imprescindible para la evolución científica, económica y social.</p>
+<p>Es preciso, sin embargo, reconocer que nos encontramos aún muy lejos de poder satisfacer las necesidades de información, ya que no sólo existen problemas tecnológicos relativos al almacenamiento y acceso a la información, sino que existen también problemas económicos, políticos, administrativos, etc. que impiden el desarrollo de sistemas de información eficientes capaces de atender debidamente las demandas de información.</p>
+<h3 id="12-cualidades-de-la-informaci%C3%B3n">1.2 Cualidades de la información</h3>
+<p>La información debe contar con una serie de cualidades para que cumpla su función principal, es decir, aportar un conocimiento. Cuando la información pierde una o más de sus cualidades se produce el fenómeno llamado <strong>polución informativa</strong>, análogo a la contaminación atmosférica.</p>
+<p>Las cualidades que debe poseer la información para ser realmente útil son:</p>
+<ul>
+<li><strong>Precisión</strong>: es el porcentaje de información correcta sobre la información total del sistema. En el ámbito de la informática, para que el ordenador aporte unos resultados precisos, es necesario introducir datos igualmente precisos, ya que éste sólo es capaz de mejorar los datos de forma muy limitada (por ejemplo, eliminando datos duplicados).</li>
+<li><strong>Oportunidad</strong>: tiempo transcurrido desde el momento en que se produjo el hecho que originó el dato hasta el momento en el que la información se pone a disposición del usuario.</li>
+<li><strong>Compleción</strong>: la información ha de ser completa para poder cumplir sus fines. La compleción absoluta es imposible de conseguir en los sistemas de información por lo que normalmente se busca conseguir un nivel “suficiente” que depende de dos factores: de los datos existentes en el sistema y de los que éste sea capaz de localizar al realizar una consulta concreta.</li>
+<li><strong>Significativa</strong>: ha de poseer la máxima carga semántica posible, para ello la información debe ser comprensible, interesante y con un volumen justo (ni escasa, ni excesiva).</li>
+<li><strong>Coherente</strong>: el sistema de información debe carecer de contradicciones, es decir, la información debe ser coherente en sí misma. Esta característica también se conoce como integridad en las bases de datos.</li>
+<li><strong>Seguridad</strong>: la información debe protegerse para evitar tanto su deterioro como accesos no autorizados. Comprende tres conceptos fundamentales: confidencialidad, disponibilidad e integridad. La seguridad de la información se refiere a la confidencialidad, integridad y disponibilidad de la información y datos, independientemente de la forma los datos pueden tener: electrónicos, impresos, audio u otras formas.<br>
+La seguridad de la información involucra la implementación de estrategias que cubran los procesos en donde la información es el activo primordial. Cabe mencionar que la seguridad es un proceso continuo de mejora por lo que las políticas y controles establecidos para la protección de la información deberán revisarse y adecuarse, de ser necesario, ante los nuevos riesgos que surjan, a fin de tomar las acciones que permitan reducirlos y en el mejor de los casos eliminarlos.</li>
+</ul>
+<h4 id="conceptos-de-seguridad">Conceptos de Seguridad</h4>
+<ul>
+<li><strong>Confidencialidad</strong>: La confidencialidad es la propiedad de prevenir la divulgación de información a personas o sistemas no autorizados. La pérdida de la confidencialidad de la información puede adoptar muchas formas. Cuando alguien mira por encima de su hombro, mientras usted tiene información confidencial en la pantalla, cuando se publica información privada, cuando un laptop con información sensible sobre una empresa es robado, cuando se divulga información confidencial a través del teléfono, etc. Todos estos casos pueden constituir una violación de la confidencialidad.</li>
+<li><strong>Integridad</strong>: Para la seguridad de la información, la integridad es la propiedad que busca mantener los datos libres de modificaciones no autorizadas. La violación de integridad se presenta cuando un empleado, programa o proceso (por accidente o con mala intención) modifica o borra los datos importantes que son parte de la información, así mismo hace que su contenido permanezca inalterado a menos que sea modificado por personal autorizado, y esta modificación sea registrada, asegurando su precisión y confiabilidad. La integridad de un mensaje se obtiene adjuntándole otro conjunto de datos de comprobación de la integridad: la firma digital es uno de los pilares fundamentales de la seguridad de la información.</li>
+<li><strong>Disponibilidad</strong>: La disponibilidad es la característica, cualidad o condición de la información de encontrarse a disposición de quienes deben acceder a ella, ya sean personas, procesos o aplicaciones. En el caso de los sistemas informáticos utilizados para almacenar y procesar la información, los controles de seguridad utilizada para protegerlo, y los canales de comunicación protegidos que se utilizan para acceder a ella deben estar funcionando correctamente. La alta disponibilidad tiene como objetivo que la información debe estar disponible en todo momento, evitando interrupciones del servicio debido a cortes de energía, fallos de hardware, y actualizaciones del sistema. Garantizar la disponibilidad implica también la prevención de ataque.</li>
+</ul>
+<p>A la hora de implantar un sistema de información el objetivo primordial es buscar un equilibrio que permita alcanzar los objetivos propuestos a un coste razonable. Esto se debe, por un lado, a que cuantas más cualidades reúna la información más se incrementarán los costes y, por otro, a que algunas cualidades son incompatibles con otras: una gran precisión puede conllevar una pérdida de oportunidad.</p>
+<p>En la actualidad la democratización de las nuevas tecnologías ha provocado una eclosión en la generación de información. Montones y montones de “datos” almacenados en montones y montones de “sitios”. Estas grandes masas de información requieren nuevas herramientas para su manejo: <strong>BIGDATA</strong>.</p>
+<h3 id="13-definici%C3%B3n-de-un-sistema-de-informaci%C3%B3n">1.3 Definición de un Sistema de Información</h3>
+<p>Toda organización necesita para su funcionamiento un conjunto de informaciones que han de transmitir entre sus distintos elementos, desde y hacia el exterior. Esta comunicación constituye un sistema de información.</p>
+<p>Está diseñado para satisfacer las necesidades de información de una organización compleja y está inmerso en ella.</p>
+<p>El SI debe tomar datos del entorno y sus resultados serán la información que dicha organización necesita para su gestión y toma de decisiones; y los directivos deben marcar objetivos para regular el SI.</p>
+<p>El control del sistema puede realizarse mediante mecanismos internos (sistemas autorregulados), por mecanismos situados en el entorno, o ambos; teniendo en cuenta la subjetividad que ello supone al poder ampliar los límites del sistema. Estos sistemas interactúan con el entorno, las entradas y el proceso se van adaptando para obtener determinadas salidas.</p>
+<p>El controlador del sistema planifica y gobierna el sistema, actuando de acuerdo con la información que recoge la salida, enviando estímulos a la entrada y al procesador para conseguir que la salida correspondiente a los objetivos del sistema.</p>
+<ul>
+<li><strong>Entradas</strong>: Son los elementos que se consumen o transforman en el proceso. Son la materia prima de los procesos de información, los datos. Los SI, a diferencia de otros sistemas, transforman las entradas sin destruirlas, al quedar almacenadas en bases de datos del sistema.</li>
+<li><strong>Salidas</strong>: Son los elementos que se crean en el proceso. Son los productos terminados.</li>
+<li><strong>Procesador</strong>: Es donde se efectúa el tratamiento, y comprende todos los elementos que participan en él sin transformarse ni crearse, excepto las entradas y salidas. Suele estar situado en el orden más bajo de la jerarquía.</li>
+<li><strong>Retroalimentación</strong>: En ciertos sistemas existe la retroalimentación que va desde la salida a la entrada.</li>
+</ul>
+<p>Las definiciones de sistemas de información pueden ser diversas. Destacamos a Langefors y Teichroew. Nosotros lo definimos como un conjunto de elementos ordenados, relacionados entre sí de acuerdo con unas reglas, que aportan al sistema objeto la información necesaria para el cumplimiento de objetivos, para el que tendrá que recoger, procesar y almacenar datos desde la organización o fuentes externas, facilitando la recuperación, elaboración y presentación de los mismos.</p>
+<p>En cuanto a sus características destacamos a Bubenko(1980), el cuál cita que pueden agruparse en:</p>
+<ul>
+<li><strong>Tecnológicas</strong>: Afectan al rendimiento y seguridad del sistema.</li>
+<li><strong>Funcionales y semánticas</strong>: Se refiere a la eficacia y adaptación del sistema.</li>
+<li><strong>Económicas</strong>: Coste y eficiencia del sistema.</li>
+<li><strong>Sociales</strong>: Aquellas que tienen un impacto sobre en entorno social alrededor del sistema.</li>
+</ul>
+<h3 id="14-componentes-de-un-sistema-de-informaci%C3%B3n">1.4 Componentes de un Sistema de Información</h3>
+<ol>
+<li><strong>Contenido (Datos)</strong>: Es el conjunto de datos, que tienen su correspondiente descripción y que están almacenados en un soporte del ordenador. Se pueden diferenciar en:
+<ol>
+<li><strong>Referenciales</strong>: Estos tipo de datos no contienen en sí misma la información, es decir están formados por referencias de los documentos donde se encuentra verdaderamente la información que buscamos.</li>
+<li><strong>Factuales</strong>: En estos tipos de datos si se nos devuelve la información que estamos buscando. Dentro de este tipo de datos debemos hacer dos tipos de clasificaciones:
+<ol>
+<li><strong>Estructurados</strong>: Tienen una estructura o formato en la cual cada campo ocupa una posición fija.</li>
+<li><strong>No estructurados</strong>: En estos tipos de datos el formato no puede ser fijo. Estos datos no siguen ningún patrón, no poseen definiciones de tipos y no existe el concepto de variables o atributos.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>Equipo Físico (Hardware)</strong>: Es el conjunto de los componentes que integran la parte material de un ordenador. (Unidad central de proceso, equipo periférico,....)</li>
+<li><strong>Soporte lógico (Software)</strong>: Es el conjunto de los componentes lógicos necesarios para hacer posible la realización de una tarea específica, en contraposición a los componentes físicos del sistema.
+<ol>
+<li><strong>Sistemas operativos</strong>: Estos componentes lógicos incluyen aplicaciones informáticas como el sistema operativo que permite al resto de programas funcionar adecuadamente.</li>
+<li><strong>Gestión de Datos (SGBD)</strong>: Se realiza mediante los Sistemas Gestores de Bases de Datos.</li>
+<li><strong>Control de las comunicaciones</strong>: Se llevan varios controles sobre el sistema de información, algunos de ellos son:
+<ol>
+<li><strong>Control de autorización</strong>: Este módulo comprueba que el usuario tiene los permisos necesarios para llevar a cabo la operación que solicita.</li>
+<li><strong>Procesador de comandos</strong>: Una vez que el sistema ha comprobado los permisos del usuario, se pasa el control al procesador de comandos.</li>
+<li><strong>Control de la integridad</strong>: Cuando una operación cambia los datos de la base de datos, este módulo debe comprobar que la operación a realizar satisface todas las restricciones de integridad necesarias.</li>
+<li><strong>Optimizador de consultas</strong>: Este módulo determina la estrategia óptima para la ejecución de las consultas.</li>
+</ol>
+</li>
+<li><strong>Gestor de transacciones</strong>: Este módulo realiza el procesamiento de las transacciones.
+<ul>
+<li><strong>Planificador</strong>: Este módulo es el responsable de asegurar que las operaciones que se realizan concurrentemente sobre la base de datos tienen lugar sin conflictos.</li>
+<li><strong>Gestor de recuperación</strong>: Este módulo garantiza que la base de datos permanece en un estado consistente en caso de que se produzca algún fallo.</li>
+<li><strong>Gestor de buffers o Gestor de Datos</strong>: Este módulo es el responsable de transferir los datos entre memoria principal y los dispositivos de almacenamiento secundario.</li>
+</ul>
+</li>
+<li><strong>Tratamientos específicos</strong>: Con la evolución de las bases de datos y su implantación en el mundo de Internet surgió la necesidad de contar con un sistema de administración para controlar tanto los datos como los usuarios, las cuales son las partes más importantes de un sistema de información.</li>
+</ol>
+</li>
+<li><strong>Usuarios</strong>: Existen 2 grandes grupos:
+<ul>
+<li><strong>Usuarios informáticos</strong>:
+<ul>
+<li><strong>Programadores de aplicaciones</strong>: que son los responsables de escribir los programas de aplicación de base de datos en algún lenguaje de programación. Estos programas acceden a la base de datos emitiendo la solicitud apropiada al DBMS. Los programas en sí pueden ser aplicaciones convencionales por lotes o pueden ser aplicaciones en línea, cuyo propósito es permitir al usuario final el acceso a la base de datos desde una estación de trabajo o Terminal en línea.</li>
+<li><strong>El administrador de base de datos (DBA)</strong>: es el técnico responsable de implementar las decisiones del administrador de datos. También se puede contar como usuario puesto que para saber si funciona la base da datos correctamente debe probarla. Por lo tanto, debe ser un profesional en IT. El trabajo del DBA consiste en crear la base de datos real e implementar los controles técnicos necesarios para hacer cumplir las diversas decisiones de las políticas hechas por el DA. El DBA también es responsable de asegurar que el sistema opere con el rendimiento adecuado y de proporcionar una variedad de otros servicios técnicos.</li>
+</ul>
+</li>
+<li><strong>Usuarios no informáticos</strong>:
+<ul>
+<li><strong>Los usuarios finales</strong>: quienes interactúan con el sistema desde estaciones de trabajo o terminales en línea. Un usuario final puede acceder a la base de datos a través de las aplicaciones en línea. Las interfaces proporcionadas por el fabricante están apoyadas también por aplicaciones en línea. La mayoría de los sistemas de base de datos incluyen por lo menos una de estas aplicaciones integradas.</li>
+<li><strong>Usuarios con menor nivel técnico</strong>: la mayoría de los sistemas proporcionan además interfaces integradas adicionales en las que los usuarios no emiten en absoluto solicitudes explícitas a la base de datos, sino que en vez de ello operan mediante la selección de elementos en un menú o llenando casillas de un formulario. Estas interfaces controladas por menús o por formularios tienden a facilitar el uso a personas que no cuentan con una capacitación formal en tecnología de la información (IT).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-sistemas-de-almacenamiento-y-gesti%C3%B3n-de-la-informaci%C3%B3n">2. Sistemas de almacenamiento y gestión de la información.</h2>
+<h3 id="21-sistema-f%C3%ADsico-de-almacenamiento">2.1 Sistema físico de almacenamiento.</h3>
+<p>El <strong>sistema físico de almacenamiento</strong> hace referencia a la representación concreta de los datos en los dispositivos hardware (discos duros HDD, unidades de estado sólido SSD, cintas, etc.). Su objetivo es escribir y leer bits (0s y 1s) de la manera más eficiente posible para el hardware, sin preocuparse por el significado lógico de esos datos. Es la capa gestionada por el controlador del disco y el sistema operativo.</p>
+<p>Las características del hardware imponen una serie de limitaciones que las capas superiores (ficheros, SGBD) deben intentar ocultar o mitigar:</p>
+<ol>
+<li>
+<p><strong>Velocidad de Acceso (La Gran Brecha):</strong></p>
+<ul>
+<li><strong>Memoria RAM:</strong> Acceso en <strong>nanosegundos</strong> (ns). Volátil.</li>
+<li><strong>SSD (Unidad de Estado Sólido):</strong> Acceso en <strong>decenas de microsegundos</strong> (µs). No tiene partes móviles.</li>
+<li><strong>HDD (Disco Duro Magnético):</strong> Acceso en <strong>milisegundos</strong> (ms). Tiene partes móviles.</li>
+<li><strong>Conclusión:</strong> Un acceso a un HDD puede ser <strong>100,000 veces más lento</strong> que un acceso a la RAM. El objetivo principal de un SGBD es minimizar los accesos al disco.</li>
+</ul>
+</li>
+<li>
+<p><strong>Acceso por Bloques (No por Bytes):</strong></p>
+<ul>
+<li>Los discos no leen o escriben bytes individuales. La unidad mínima de transferencia es el <strong>sector</strong> (típicamente 512B o 4KB).</li>
+<li>Acceder a un solo byte obliga a leer o escribir todo el sector donde reside. Esto hace que la organización física de los datos sea crucial para el rendimiento.</li>
+</ul>
+</li>
+<li>
+<p><strong>Características Mecánicas (En HDD):</strong></p>
+<ul>
+<li><strong>Tiempo de Búsqueda (Seek Time):</strong> Tiempo que tarda el cabezal de lectura/escritura en moverse al cilindro correcto.</li>
+<li><strong>Latencia Rotacional (Rotational Latency):</strong> Tiempo que tarda el sector deseado en girar hasta quedar bajo el cabezal.</li>
+<li>Estos dos factores son el cuello de botella principal en HDDs. Las operaciones son mucho más rápidas si los datos a leer están almacenados en sectores consecutivos, minimizando los movimientos del cabezal.</li>
+</ul>
+</li>
+<li>
+<p><strong>Gestión del Espacio y Fragmentación:</strong></p>
+<ul>
+<li>El sistema operativo debe llevar un control de qué bloques del disco están libres y cuáles ocupados.</li>
+<li>Con el tiempo, los archivos se fragmentan (sus partes se esparcen por el disco), lo que aumenta los tiempos de acceso aleatorio (el cabezal debe saltar por todo el disco).</li>
+</ul>
+</li>
+</ol>
+<h4 id="unidades-de-almacenamiento-f%C3%ADsico">Unidades de almacenamiento físico.</h4>
+<p>Para entender cómo se gestionan los datos, es esencial conocer las unidades de trabajo:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Unidad</th>
+<th style="text-align:left">Descripción</th>
+<th style="text-align:left">¿Quién la gestiona?</th>
+<th style="text-align:left">Importancia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Bit</strong></td>
+<td style="text-align:left">Un 0 o un 1.</td>
+<td style="text-align:left">Hardware</td>
+<td style="text-align:left">Unidad atómica de información.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Byte</strong></td>
+<td style="text-align:left">8 bits.</td>
+<td style="text-align:left">Hardware</td>
+<td style="text-align:left">Unidad de información direccionable.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Sector</strong></td>
+<td style="text-align:left"><strong>Unidad direccionable más pequeña del disco.</strong> Grupo de bytes (ej: 512B, 4KB). Tiene una dirección única.</td>
+<td style="text-align:left">Controlador del Disco</td>
+<td style="text-align:left">El disco lee/escribe físicamente sectores completos.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Bloque</strong></td>
+<td style="text-align:left"><strong>Unidad mínima de transferencia entre disco y memoria.</strong> Agrupa varios sectores consecutivos (ej: 4KB, 8KB, 16KB).</td>
+<td style="text-align:left">Sistema Operativo</td>
+<td style="text-align:left">El SO lee/escribe bloques completos a/desde la RAM.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Página</strong></td>
+<td style="text-align:left"><strong>Unidad fundamental de almacenamiento en un SGBD.</strong> Es un bloque de tamaño fijo (ej: 4KB, 8KB) que el SGBD intercambia con el disco.</td>
+<td style="text-align:left">Sistema Gestor de Bases de Datos (SGBD)</td>
+<td style="text-align:left"><strong>Concepto clave.</strong> Las tablas, índices y datos se almacenan en páginas. El SGBD gestiona un <strong>buffer pool</strong> en RAM para cachear las páginas usadas frecuentemente y evitar accesos a disco.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Extent</strong></td>
+<td style="text-align:left">Conjunto contiguo de páginas (ej: 8 páginas de 8KB forman un extent de 64KB).</td>
+<td style="text-align:left">SGBD</td>
+<td style="text-align:left">Se usa para asignar espacio de manera eficiente a objetos grandes (tablas, índices).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Archivo de Datos</strong></td>
+<td style="text-align:left">Conjunto de extents y páginas. Un archivo físico en el SO que pertenece a una base de datos.</td>
+<td style="text-align:left">SGBD / SO</td>
+<td style="text-align:left">Una base de datos está compuesta por uno o varios archivos de datos (y de log).</td>
+</tr>
+</tbody>
+</table>
+<p>Veamos con un ejemplo cómo interactúan estas unidades:</p>
+<ol>
+<li>Un usuario ejecuta la consulta: <code>SELECT * FROM clientes WHERE id = 123;</code></li>
+<li>El <strong>SGBD</strong> determina en qué <strong>página</strong> se encuentra el registro con <code>id=123</code> (usando un índice).</li>
+<li>El SGBD verifica si esa <strong>página</strong> ya está en el <strong>buffer pool</strong> (en RAM).</li>
+<li><strong>Si no está (fallo de página):</strong> El SGBD solicita al <strong>SO</strong> que lea el <strong>bloque</strong> del disco que contiene esa <strong>página</strong>.</li>
+<li>El <strong>SO</strong> traduce la solicitud al <strong>controlador del disco</strong>.</li>
+<li>El <strong>controlador del disco</strong> localiza el <strong>sector</strong> (o sectores) físico donde reside ese bloque, mueve el cabezal (si es HDD) y transfiere los datos a la RAM.</li>
+<li>El <strong>SGBD</strong> recibe la <strong>página</strong> en el buffer pool y luego examina los <strong>registros</strong> dentro de ella para encontrar y devolver la fila con <code>id=123</code>.</li>
+</ol>
+<h4 id="conclusi%C3%B3n-el-%22problema%22-que-las-capas-l%C3%B3gicas-resuelven">Conclusión: El &quot;Problema&quot; que las Capas Lógicas Resuelven</h4>
+<p>Trabajar directamente con el almacenamiento físico (calcular sectores, gestionar el movimiento del cabezal) es inviable para desarrollar aplicaciones. Es extremadamente complejo, propenso a errores y muy lento.</p>
+<p><strong>La evolución (Sistema Físico → Ficheros → Bases de Datos)</strong> es una respuesta directa a estos desafíos, añadiendo capas de abstracción que:</p>
+<ol>
+<li><strong>Ocultan la complejidad:</strong> El programador ve &quot;registros&quot; y &quot;tablas&quot;, no sectores y cilindros.</li>
+<li><strong>Optimizan el acceso:</strong> Estructuras como <strong>índices</strong> permiten saltar directamente a la página correcta, minimizando los costosos accesos aleatorios al disco.</li>
+<li><strong>Agrupan datos:</strong> Empaquetan registros lógicos en <strong>páginas</strong> físicas para ser transferidos eficientemente.</li>
+<li><strong>Gestionan la concurrencia:</strong> Controlan qué sucede cuando múltiples usuarios necesitan acceder a la misma página simultáneamente.</li>
+<li><strong>Garantizan la consistencia:</strong> Aseguran que las escrituras en el disco se hagan de forma segura incluso ante fallos, usando estructuras como un <strong>log de transacciones</strong>.</li>
+</ol>
+<p>Entender la base física es entender <strong>por qué</strong> las bases de datos se diseñan y se comportan como lo hacen. El rendimiento de un SGBD depende, en gran medida, de cómo gestiona esta interacción con el disco.</p>
+<h3 id="22-sistemas-l%C3%B3gicos-de-almacenamiento">2.2 Sistemas lógicos de almacenamiento.</h3>
+<h4 id="de-los-ficheros-a-las-bases-de-datos">De los ficheros a las bases de datos.</h4>
+<p>El <strong>Sistema Lógico de Almacenamiento</strong> es una capa de abstracción que se construye sobre el sistema físico para permitir una interacción comprensible y eficiente con los datos. Su objetivo es ocultar la complejidad del hardware (bloques, sectores, direcciones físicas) y presentar modelos de datos estructurados y manejables para usuarios y aplicaciones.</p>
+<p>La evolución de estos sistemas lógicos ha seguido esta trayectoria para resolver las limitaciones de cada aproximación previa:</p>
+<p><strong>Almacenamiento Físico → Sistemas de Ficheros → Sistemas de Bases de Datos</strong></p>
+<h4 id="1-sistemas-de-ficheros">1. Sistemas de Ficheros</h4>
+<p>Los sistemas de ficheros fueron la primera capa de abstracción lógica sobre el almacenamiento físico, gestionada por el Sistema Operativo.</p>
+<p>Un sistema de ficheros organiza los datos en <strong>archivos</strong> (que contienen registros) y <strong>directorios</strong> (que organizan los archivos). La aplicación es la responsable de interpretar la estructura interna de cada archivo.</p>
+<p><strong>Características Principales:</strong></p>
+<ul>
+<li><strong>Persistencia:</strong> Los datos sobreviven al apagado de la aplicación.</li>
+<li><strong>Abstracción básica:</strong> Ocultan la ubicación física en el disco (bloques/sectores) tras la noción de &quot;archivo&quot; y &quot;ruta&quot;.</li>
+<li><strong>Control de acceso básico:</strong> Permisos de lectura, escritura y ejecución a nivel de archivo.</li>
+</ul>
+<p><strong>Clasificación según su Estructura Lógica:</strong></p>
+<h4 id="a-ficheros-planos">A. Ficheros Planos</h4>
+<ul>
+<li><strong>Descripción:</strong> Archivos de texto o binarios sin estructura interna reconocible por el SO. La aplicación debe conocer el formato exacto para interpretarlos.</li>
+<li><strong>Ejemplos:</strong> <code>.txt</code>, <code>.csv</code> (valores separados por comas), un archivo JSON.</li>
+<li><strong>Ventaja:</strong> Máxima simplicidad y portabilidad.</li>
+<li><strong>Desventaja:</strong> Alta redundancia, nula integridad estructural y acceso ineficiente (siempre secuencial).</li>
+</ul>
+<h4 id="b-ficheros-indexados">B. Ficheros Indexados</h4>
+<ul>
+<li><strong>Descripción:</strong> Mejoran los archivos planos añadiendo una estructura auxiliar (índice) que permite acceso rápido a registros específicos mediante una clave.</li>
+<li><strong>Estructura:</strong> Separan los datos (archivo maestro) de los índices (archivo de índices). El índice relaciona una clave con la posición física del registro en el archivo de datos.</li>
+<li><strong>Ventaja:</strong> Permiten acceso directo y secuencial. Velocidad de búsqueda mejorada.</li>
+<li><strong>Desventaja:</strong> Complejidad añadida. El programador debe gestionar la creación, actualización y sincronización de los índices.</li>
+</ul>
+<h4 id="c-ficheros-de-acceso-directo-o-relativo">C. Ficheros de Acceso Directo (o Relativo)</h4>
+<ul>
+<li><strong>Descripción:</strong> Utilizan una función de transformación (hash) para calcular la dirección física directa de un registro a partir de su clave.</li>
+<li><strong>Ventaja:</strong> Tiempo de acceso constante, ideal para aplicaciones de tiempo real.</li>
+<li><strong>Desventaja:</strong> Espacio preasignado, posible colisión de claves y uso ineficiente del espacio.</li>
+</ul>
+<p><strong>Limitaciones de los Sistemas de Ficheros (y por qué surgieron las BD):</strong></p>
+<ul>
+<li><strong>Redundancia e inconsistencia:</strong> Datos duplicados en múltiples archivos llevan a inconsistencias.</li>
+<li><strong>Aislamiento de datos:</strong> Los datos están dispersos en archivos independientes, dificultando las consultas combinadas.</li>
+<li><strong>Dependencia de la aplicación:</strong> La estructura de los datos está embebida en el código de la aplicación. Cambiar la estructura often requiere cambiar la aplicación.</li>
+<li><strong>Problemas de integridad:</strong> Es difícil imponer restricciones de integridad (ej: que un cliente tenga una ID única).</li>
+<li><strong>Problemas de acceso concurrente:</strong> No hay mecanismos robustos para gestionar múltiples usuarios actualizando el mismo archivo simultáneamente.</li>
+</ul>
+<h4 id="2-sistemas-de-bases-de-datos">2. Sistemas de Bases de Datos</h4>
+<p>Los Sistemas de Gestión de Bases de Datos (SGBD) surgieron como solución a las limitaciones de los sistemas de ficheros, proporcionando una abstracción lógica mucho más poderosa y robusta.</p>
+<p>Un SGBD es un software que sirve como intermediario entre los datos físicos y las aplicaciones/usuario. Proporciona una visión lógica unificada y abstracta de los datos, llamada <strong>esquema</strong>, independiente del almacenamiento físico.</p>
+<p><strong>Características Principales (frente a los sistemas de ficheros):</strong></p>
+<ol>
+<li><strong>Abstracción Avanzada:</strong> Ocultan completamente el almacenamiento físico. El usuario ve tablas, vistas y relaciones, no archivos ni bloques.</li>
+<li><strong>Independencia de los Datos:</strong><br>
+- <strong>Independencia Física:</strong> Se puede cambiar la organización física (ej: añadir un índice, migrar a un SSD) sin afectar a las aplicaciones.<br>
+- <strong>Independencia Lógica:</strong> Se puede cambiar el esquema lógico (ej: añadir una columna) sin afectar a todas las aplicaciones (si no usan esa columna).</li>
+<li><strong>Reducción de la Redundancia:</strong> Al integrar los datos en una única base de datos, se elimina la duplicación no controlada. La redundancia que queda es deliberada y controlada.</li>
+<li><strong>Consistencia e Integridad:</strong> Aplican reglas definidas (restricciones, claves foráneas, triggers) para garantizar que los datos sean correctos y válidos en todo momento.</li>
+<li><strong>Acceso Concurrente Controlado:</strong> Gestionan de forma transparente múltiples usuarios, utilizando mecanismos de transacción (bloqueos, control de concurrencia) para evitar conflictos.</li>
+<li><strong>Vistas de Seguridad:</strong> Permiten crear vistas personalizadas y seguras de los datos para diferentes usuarios o grupos, restringiendo el acceso a filas o columnas sensibles.</li>
+</ol>
+<p><strong>Clasificación de los Modelos Lógicos en Bases de Datos:</strong></p>
+<ul>
+<li><strong>Modelo Relacional:</strong> Organiza los datos en tablas (relaciones) de filas y columnas. Es el más extendido. (Ej: MySQL, PostgreSQL, Oracle).</li>
+<li><strong>Modelo Documental:</strong> Organiza los datos en documentos flexibles, normalmente en formato JSON/BSON. (Ej: MongoDB).</li>
+<li><strong>Modelo de Grafos:</strong> Representa los datos como nodos y aristas, ideal para datos interconectados. (Ej: Neo4j).</li>
+<li><strong>Modelo Clave-Valor:</strong> Almacena datos como pares clave-valor, ideal para cachés y sistemas simples. (Ej: Redis).</li>
+</ul>
+<h4 id="resumen-comparativo-la-evoluci%C3%B3n-l%C3%B3gica">Resumen Comparativo: La Evolución Lógica</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Característica</th>
+<th style="text-align:left">Sistema de Ficheros</th>
+<th style="text-align:left">Sistema de Bases de Datos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Abstracción</strong></td>
+<td style="text-align:left">Básica (Archivos)</td>
+<td style="text-align:left">Avanzada (Esquema, Tablas)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Redundancia</strong></td>
+<td style="text-align:left">Alta y no controlada</td>
+<td style="text-align:left">Mínima y controlada</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Independencia</strong></td>
+<td style="text-align:left">Muy baja (App = Estructura)</td>
+<td style="text-align:left">Alta (Física y Lógica)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Integridad</strong></td>
+<td style="text-align:left">Gestionada por la app</td>
+<td style="text-align:left">Gestionada por el SGBD</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Concurrencia</strong></td>
+<td style="text-align:left">Muy difícil de gestionar</td>
+<td style="text-align:left">Gestionada automáticamente</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Consultas</strong></td>
+<td style="text-align:left">Secuenciales, programadas</td>
+<td style="text-align:left">Declarativas (SQL), complejas</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Seguridad</strong></td>
+<td style="text-align:left">A nivel de archivo</td>
+<td style="text-align:left">A nivel de tabla, fila, columna</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Complexidad</strong></td>
+<td style="text-align:left">Para el programador</td>
+<td style="text-align:left">Para el SGBD (DBMS)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conclusión:</strong> El paso de los sistemas de ficheros a los sistemas de bases de datos representa un salto cualitativo en la gestión de la información. Los SGBD encapsulan toda la complejidad del almacenamiento físico y la gestión de datos, ofreciendo a los desarrolladores un modelo lógico robusto, seguro y eficiente que garantiza la calidad de los datos y simplifica enormemente el desarrollo de aplicaciones.</p>
+<h2 id="3-sistemas-de-bases-de-datos">3. Sistemas de bases de datos.</h2>
+<h3 id="31-conceptos">3.1. Conceptos.</h3>
+<p>En un contexto técnico, es esencial precisar la terminología:</p>
+<ul>
+<li>
+<p><strong>Base de Datos (BD):</strong></p>
+<ul>
+<li><strong>Definición:</strong> Un conjunto estructurado de datos persistente, almacenado en un soporte informático. Es el <em>activo de información</em> en sí mismo.</li>
+<li><strong>Naturaleza:</strong> Es pasiva. Son los datos, no el software.</li>
+<li><strong>Analogía:</strong> Los ingredientes y la receta (los datos y el esquema).</li>
+</ul>
+</li>
+<li>
+<p><strong>Sistema Gestor de Bases de Datos (SGBD o DBMS):</strong></p>
+<ul>
+<li><strong>Definición:</strong> El software complejo que actúa como un intermediario entre la base de datos, las aplicaciones y los usuarios. Su propósito es proporcionar un entorno eficiente y seguro para la creación, recuperación, actualización y administración de los datos almacenados en la BD.</li>
+<li><strong>Naturaleza:</strong> Es activo. Es el <em>motor</em> que manipula la base de datos.</li>
+<li><strong>Analogía:</strong> El chef, los utensilios de cocina y el libro de normas de la cocina (el software y las reglas que manipulan los ingredientes).</li>
+</ul>
+</li>
+<li>
+<p><strong>Sistema de Base de Datos:</strong></p>
+<ul>
+<li><strong>Definición:</strong> El sistema completo. Es la unión de los cuatro componentes fundamentales: <strong>los datos (BD)</strong>, <strong>el software (SGBD)</strong>, <strong>el hardware</strong> (servidores, almacenamiento) y <strong>los usuarios</strong> (administradores, desarrolladores, usuarios finales).</li>
+<li><strong>Naturaleza:</strong> Es un ecosistema. Es la suma de todas las partes que interactúan.</li>
+<li><strong>Analogía:</strong> El restaurante completo en funcionamiento (ingredientes, chef, cocina, clientes y personal).</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="32-sistema-gestor-de-bases-de-datos-sgbd-n%C3%BAcleo-del-sistema">3.2. Sistema Gestor de Bases de Datos (SGBD): Núcleo del Sistema</h3>
+<h4 id="definici%C3%B3n-formal"><strong>Definición Formal</strong></h4>
+<p>Un SGBD es un sistema software de propósito general que facilita el proceso de definición, construcción, manipulación y administración de bases de datos. Proporciona una capa de abstracción que independiza a los programas de aplicación y a los usuarios de los detalles de almacenamiento físico.</p>
+<h4 id="funciones-principales"><strong>Funciones Principales</strong></h4>
+<ol>
+<li><strong>Gestión de Almacenamiento:</strong> Gestiona la asignación de espacio en disco, la estructura de archivos, páginas, y el buffer pool en memoria para optimizar el acceso a datos.</li>
+<li><strong>Procesamiento de Consultas:</strong>
+<ul>
+<li><strong>Parser:</strong> Analiza sintáctica y semánticamente las consultas SQL.</li>
+<li><strong>Optimizador:</strong> Selecciona el <strong>plan de ejecución</strong> más eficiente (elección de índices, algoritmos de join, etc.) para resolver la consulta. Es el &quot;cerebro&quot; del SGBD.</li>
+<li><strong>Motor de Ejecución:</strong> Lleva a cabo el plan generado por el optimizador.</li>
+</ul>
+</li>
+<li><strong>Gestión de Transacciones:</strong> Garantiza las propiedades <strong>ACID</strong>:
+<ul>
+<li><strong>Atomicidad:</strong> Una transacción se ejecuta por completo o no se ejecuta nada.</li>
+<li><strong>Consistencia:</strong> Toda transacción lleva a la base de datos de un estado válido a otro.</li>
+<li><strong>Aislamiento:</strong> La ejecución concurrente de transacciones produce el mismo estado que una ejecución secuencial.</li>
+<li><strong>Durabilidad:</strong> Los efectos de una transacción confirmada son permanentes.</li>
+</ul>
+</li>
+<li><strong>Control de Concurrencia:</strong> Implementa mecanismos (como bloqueos multigrado o control de versiones - MVCC) para aislar las transacciones concurrentes y evitar anomalías (lecturas sucias, no repetibles, etc.).</li>
+<li><strong>Gestión de Catálogo (Diccionario de Datos):</strong> Almacena metadatos sobre la estructura de la BD (esquemas, tablas, índices, usuarios, permisos, estadísticas).</li>
+<li><strong>Control de Acceso y Seguridad:</strong> Autentica usuarios y aplica mecanismos de autorización granular (privilegios a nivel de sistema, esquema, tabla, fila e incluso columna).</li>
+<li><strong>Servicios de Copia de Seguridad y Recuperación:</strong> Permite restaurar la base de datos a un estado consistente tras un fallo hardware o software, utilizando copias de seguridad y archivos de log de transacciones.</li>
+</ol>
+<h4 id="estructura-y-componentes-arquitect%C3%B3nicos"><strong>Estructura y Componentes Arquitectónicos</strong></h4>
+<p>La arquitectura modular típica de un SGBD incluye:</p>
+<ul>
+<li><strong>Gestor de Archivos:</strong> Gestiona la asignación de espacio en disco y las estructuras de archivos del SO.</li>
+<li><strong>Gestor de Almacenamiento:</strong> Responsable del manejo del <strong>buffer pool</strong>, la gestión de páginas y la transferencia de datos entre memoria y disco.</li>
+<li><strong>Procesador de Consultas:</strong> Como se describió anteriormente (Parser, Optimizador, Motor de Ejecución).</li>
+<li><strong>Gestor de Transacciones:</strong> Coordina las transacciones, gestiona el <strong>log</strong> (registro histórico de modificaciones) y se asegura del cumplimiento de ACID.</li>
+<li><strong>Módulo DDL/DML:</strong> Interpreta y ejecuta los comandos del Lenguaje de Definición de Datos (CREATE, ALTER) y del Lenguaje de Manipulación de Datos (SELECT, INSERT, UPDATE, DELETE).</li>
+<li><strong>Herramientas de Administración:</strong> Módulos para monitorización, tuning, y mantenimiento (ej: <code>pgAdmin</code> para PostgreSQL, <code>Enterprise Manager</code> para Oracle).</li>
+</ul>
+<h4 id="clasificaci%C3%B3n-de-los-sgbd"><strong>Clasificación de los SGBD</strong></h4>
+<ol>
+<li><strong>Según el Modelo de Datos:</strong>
+<ul>
+<li><strong>Relacional (RDBMS):</strong> Oracle, MySQL, PostgreSQL, SQL Server.</li>
+<li><strong>NoSQL:</strong>
+<ul>
+<li><strong>Documentales:</strong> MongoDB, Couchbase.</li>
+<li><strong>Clave-Valor:</strong> Redis, DynamoDB.</li>
+<li><strong>Grafos:</strong> Neo4j, Amazon Neptune.</li>
+<li><strong>Columnares:</strong> Cassandra, HBase.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Según la Licencia:</strong>
+<ul>
+<li><strong>Comerciales/Propietarios:</strong> Requieren pago de licencias. Ofrecen soporte profesional, herramientas avanzadas y alta optimización.
+<ul>
+<li><strong>Oracle Database:</strong> Líder en el mercado empresarial, alto rendimiento, características avanzadas (RAC, Exadata).</li>
+<li><strong>Microsoft SQL Server:</strong> Integración excelente con el ecosistema Microsoft, potente herramienta de BI (SSIS, SSAS, SSRS).</li>
+<li><strong>IBM Db2:</strong> Alto rendimiento en entornos mainframe y distribuidos, fuerte en estabilidad.</li>
+</ul>
+</li>
+<li><strong>Libres/Open Source:</strong> Código abierto, sin coste de licencia. Comunidad activa y frecuente innovación.
+<ul>
+<li><strong>PostgreSQL:</strong> SGBD relacional open source más avanzado. Cumplimiento extenso de SQL estándar, soporte para tipos de datos avanzados (JSON, geométricos), extensible.</li>
+<li><strong>MySQL:</strong> Muy popular para aplicaciones web. Rápido, fácil de usar, pero con algunas limitaciones en SQL avanzado (mejoradas en versiones recientes).</li>
+<li><strong>MariaDB:</strong> Fork de MySQL creado por los desarrolladores originales, con más características open source y mejoras en motores de almacenamiento.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Según la Ubicación y Distribución:</strong>
+<ul>
+<li><strong>Centralizados:</strong> Un único servidor SGBD.</li>
+<li><strong>Distribuidos (DDBMS):</strong> Los datos están repartidos en múltiples nodos físicos, manejados por un SGBD que presenta una vista unificada de los datos.</li>
+</ul>
+</li>
+</ol>
+<h2 id="4-bases-de-datos-centralizadas-y-distribuidas">4. Bases de datos centralizadas y distribuidas.</h2>
+<h3 id="41-base-de-datos-centralizada">4.1. Base de Datos Centralizada</h3>
+<p><strong>Definición:</strong>
+Una base de datos centralizada es aquella en la que todos los datos residen en un único servidor físico (o un clúster de servidores fuertemente acoplados) y son gestionados por una única instancia de un Sistema Gestor de Bases de Datos (SGBD). Todas las operaciones de lectura y escritura se realizan contra esta ubicación única.</p>
+<p><strong>Características Técnicas:</strong></p>
+<ul>
+<li><strong>Arquitectura Única:</strong> Un solo servidor SGBD gestiona todo el esquema de la base de datos.</li>
+<li><strong>Localización de Datos:</strong> Todos los datos están almacenados en un único lugar (o un conjunto de discos conectados al mismo servidor).</li>
+<li><strong>Gestión de Transacciones ACID:</strong> La atomicidad, consistencia, aislamiento y durabilidad se gestionan de manera sencilla y centralizada.</li>
+<li><strong>Punto Único de Acceso:</strong> Los clientes se conectan a un único endpoint o dirección de red.</li>
+</ul>
+<p><strong>Ventajas:</strong></p>
+<ul>
+<li><strong>Simplicidad:</strong> La administración, el backup, la recuperación y la aplicación de políticas de seguridad son más sencillas al estar todo centralizado.</li>
+<li><strong>Consistencia Fuerte:</strong> Al no existir réplicas o fragmentos, se garantiza fácilmente la consistencia inmediata de los datos.</li>
+<li><strong>Rendimiento para Datos Locales:</strong> Las transacciones y consultas que acceden a datos relacionados pueden ser muy rápidas al no existir latencia de red interna.</li>
+</ul>
+<p><strong>Desventajas:</strong></p>
+<ul>
+<li><strong>Punto Único de Falla (SPOF):</strong> Una caída del servidor o del centro de datos deja toda la aplicación inoperativa.</li>
+<li><strong>Cuellos de Botella:</strong> Todo el tráfico y el procesamiento convergen en un único punto, lo que puede saturar los recursos (CPU, Memoria, I/O del disco) bajo cargas pesadas.</li>
+<li><strong>Escalabilidad Limitada:</strong> La escalabilidad es principalmente vertical (<em>scale-up</em>): añadir más CPU, RAM o discos más rápidos al servidor, lo que resulta costoso y tiene límites físicos.</li>
+<li><strong>Problemas de Latencia Geográfica:</strong> Usuarios distribuidos geográficamente experimentan una alta latencia si están lejos del servidor central.</li>
+</ul>
+<h3 id="42-base-de-datos-distribuida-ddbms">4.2. Base de Datos Distribuida (DDBMS)</h3>
+<p><strong>Definición:</strong>
+Una base de datos distribuida es una colección de múltiples bases de datos lógicamente interrelacionadas, pero distribuidas físicamente en una red de nodos (sitios o centros de datos), y gestionadas por un sistema de gestión de bases de datos distribuidas (DDBMS). El sistema se encarga de que esta distribución sea transparente para el usuario, que puede interactuar con la base de datos como si fuera única.</p>
+<p><strong>Características Técnicas (Principios de C.J. Date):</strong></p>
+<ul>
+<li><strong>Transparencia de Distribución:</strong> El usuario no necesita saber <em>dónde</em> están almacenados físicamente los datos. El DDBMS se encarga de localizarlos y acceder a ellos. Esto incluye transparencia de fragmentación, localización y replicación.</li>
+<li><strong>Autonomía de los Sitios:</strong> Cada nodo (sitio) puede operar de manera independiente y gestionar su base de datos local, participando también en operaciones globales.</li>
+<li><strong>Independencia del Hardware y el SGBD:</strong> Idealmente, los nodos pueden usar hardware y甚至 SGBD diferentes (sistemas heterogéneos), aunque en la práctica es más común la homogeneidad.</li>
+</ul>
+<p><strong>Ventajas:</strong></p>
+<ul>
+<li><strong>Alta Disponibilidad y Confiabilidad:</strong> La falla de un nodo no implica la caída de todo el sistema. Los datos replicados en otros nodos pueden seguir estando disponibles.</li>
+<li><strong>Escalabilidad Horizontal (<em>Scale-out</em>):</strong> Se puede aumentar la capacidad añadiendo más nodos/servidores a la red, lo que es más económico y flexible que el <em>scale-up</em>.</li>
+<li><strong>Mejor Rendimiento y Proximidad:</strong> Los datos pueden colocarse cerca de donde se usan (ej: usuarios en Europa usan un nodo europeo), reduciendo la latencia. La carga de trabajo se distribuye entre varios nodos.</li>
+<li><strong>Mayor Autonomía:</strong> Permite que diferentes departamentos o oficinas geográficas controlen sus datos locales.</li>
+</ul>
+<p><strong>Desventajas:</strong></p>
+<ul>
+<li><strong>Complejidad:</strong> El diseño, implementación, administración y debugging son extremadamente complejos.</li>
+<li><strong>Overhead y Coste:</strong> La coordinación entre nodos introduce una sobrecarga en las comunicaciones de red y un mayor consumo de recursos computacionales.</li>
+<li><strong>Retos en la Consistencia:</strong> Garantizar la consistencia de los datos a través de múltiples nodos es un desafío. A menudo se sacrifica la consistencia fuerte inmediata (modelo ACID) por una consistencia eventual en favor de la disponibilidad (Teorema CAP).</li>
+<li><strong>Mayor Dificultad en Seguridad:</strong> La superficie de ataque es mayor al haber múltiples puntos de acceso. La seguridad debe gestionarse de forma coherente en todos los nodos.</li>
+</ul>
+<h3 id="43-fragmentaci%C3%B3n-de-la-informaci%C3%B3n">4.3. Fragmentación de la Información</h3>
+<p>La fragmentación es la técnica fundamental para distribuir los datos en un DDBMS. Consiste en dividir una relación (tabla) lógica en partes más pequeñas (fragmentos) que se almacenan en diferentes nodos.</p>
+<h4 id="pol%C3%ADticas-de-fragmentaci%C3%B3n"><strong>Políticas de Fragmentación:</strong></h4>
+<ol>
+<li>
+<p><strong>Fragmentación Horizontal:</strong></p>
+<ul>
+<li><strong>Definición:</strong> Se divide una tabla en subconjuntos de <strong>filas</strong> (tuplas) basándose en un predicado o condición.</li>
+<li><strong>Objetivo:</strong> Localizar datos relevantes en nodos específicos (ej: datos de clientes de una región en el nodo de esa región).</li>
+<li><strong>Ejemplo:</strong> <code>Clientes_España = σ(Pais = 'España', Clientes)</code>, <code>Clientes_Francia = σ(Pais = 'Francia', Clientes)</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Fragmentación Vertical:</strong></p>
+<ul>
+<li><strong>Definición:</strong> Se divide una tabla en subconjuntos de <strong>columnas</strong> (atributos). Cada fragmento debe incluir la clave primaria original para permitir la reconstrucción de las filas.</li>
+<li><strong>Objetivo:</strong> Separar atributos de acceso frecuente o sensibles en diferentes nodos por razones de seguridad o rendimiento.</li>
+<li><strong>Ejemplo:</strong> <code>Fragmento1 = π(ID_Cliente, Nombre, Email, Clientes)</code>, <code>Fragmento2 = π(ID_Cliente, Tarjeta_Crédito, Salario, Clientes)</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Fragmentación Mixta (Híbrida):</strong></p>
+<ul>
+<li><strong>Definición:</strong> Aplicación combinada de las dos técnicas anteriores. Primero se aplica una fragmentación horizontal o vertical y al resultado se le aplica la otra.</li>
+<li><strong>Ejemplo:</strong> Primero fragmentar horizontalmente <code>Clientes</code> por <code>País</code>, y luego fragmentar verticalmente cada uno de esos fragmentos para separar la información personal de la financiera.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Principio de Corrección de la Fragmentación:</strong></p>
+<ul>
+<li><strong>Completitud:</strong> Cada dato de la relación global debe asignarse a algún fragmento.</li>
+<li><strong>Reconstrucción:</strong> Debe ser posible reconstruir la relación global original a partir de sus fragmentos mediante operaciones relacionales (UNION para horizontal, JOIN para vertical).</li>
+<li><strong>Disyunción:</strong> Para evitar redundancia, los fragmentos horizontales deben ser disjuntos entre sí (filas únicas), y los fragmentos verticales deben ser disjuntos en sus atributos (excepto la clave primaria, que se replica para permitir el JOIN).</li>
+</ul>
+
+</body>
+</html>

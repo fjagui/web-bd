@@ -1,7 +1,7 @@
 site_name: Base de Datos.
 site_url: https://fjagui.github.io/web-bd/
-repo_url: https://github.com/fjagui/web-bd/
-repo_name: web-bd
+#repo_url: https://github.com/fjagui/web-bd/
+#repo_name: web-bd
 theme:
   name: material
   language: es
