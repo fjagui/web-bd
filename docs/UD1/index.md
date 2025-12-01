@@ -385,3 +385,218 @@ La fragmentación es la técnica fundamental para distribuir los datos en un DDB
 - **Completitud:** Cada dato de la relación global debe asignarse a algún fragmento.  
 - **Reconstrucción:** Debe ser posible reconstruir la relación global original a partir de sus fragmentos mediante operaciones relacionales (UNION para horizontal, JOIN para vertical).  
 - **Disyunción:** Para evitar redundancia, los fragmentos horizontales deben ser disjuntos entre sí (filas únicas), y los fragmentos verticales deben ser disjuntos en sus atributos (excepto la clave primaria, que se replica para permitir el JOIN).  
+
+## 5. Ley de Protección de Datos en España
+
+La protección de datos en España se rige principalmente por el **Reglamento General de Protección de Datos (RGPD)** de la Unión Europea y la **Ley Orgánica 3/2018**, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD).
+
+#### Principales Aspectos de la Ley
+
+**Ámbito de aplicación:**
+- Aplicable a todo tratamiento de datos personales en España.
+- Incluye datos en formato digital y papel.
+- Afecta a empresas, administraciones públicas y profesionales.
+
+**Datos especialmente protegidos:**
+
+- Datos de salud.
+- Origen racial o étnico.
+- Opiniones políticas.
+- Creencias religiosas.
+- Orientación sexual.
+- Datos biométricos y genéticos.
+
+**Principios básicos del RGPD:**
+
+- Licitud, lealtad y transparencia.
+- Limitación de la finalidad.
+- Minimización de datos.
+- Exactitud.
+- Limitación del plazo de conservación.
+- Integridad y confidencialidad.
+- Responsabilidad proactiva.
+
+**Derechos de los ciudadanos:**  
+
+- Derecho de acceso.  
+- Derecho de rectificación.  
+- Derecho de supresión ("derecho al olvido").  
+- Derecho a la limitación del tratamiento.  
+- Derecho a la portabilidad de los datos.  
+- Derecho de oposición.  
+
+**Obligaciones para las organizaciones:**
+
+- Registrar las actividades de tratamiento.  
+- Designar un Delegado de Protección de Datos (DPO) cuando sea necesario.  
+- Realizar evaluaciones de impacto cuando el tratamiento suponga alto riesgo.  
+- Notificar violaciones de seguridad en 72 horas.  
+- Aplicar principios de "privacy by design" y "privacy by default".  
+
+**Enlaces de interés:**
+
+- [Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales.](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673){target=blank}
+- [Reglamento General de Protección de Datos (RGPD).](https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679){target=blank}
+- [Agencia Española de Protección de Datos (AEPD).](https://www.aepd.es/){target=blank}
+
+**Aspectos relevantes para el desarrollo web**
+
+  - **En aplicaciones web y móviles:**
+
+    - Obtener consentimiento explícito para cookies y tracking.  
+    - Informar claramente sobre la finalidad del tratamiento.  
+    - Implementar medidas de seguridad adecuadas.  
+    - Facilitar el ejercicio de derechos desde la interfaz.  
+    - Conservar los datos solo durante el tiempo necesario.  
+
+  - **En bases de datos:**
+
+    - Cifrar datos sensibles.  
+    - Realizar copias de seguridad seguras.  
+    - Controlar los accesos mediante autenticación.  
+    - Registrar los accesos a los datos.  
+    - Anonimizar o seudonimizar cuando sea posible.  
+
+La normativa española de protección de datos es una de las más avanzadas de Europa y requiere que las organizaciones implementen medidas técnicas y organizativas adecuadas para garantizar la seguridad y privacidad de los datos personales.
+
+
+## 6. Inteligencia de Negocios y Big Data
+### 6.1 Introducción a la Inteligencia de Negocios (Business Intelligence)
+
+#### Definición y Conceptos Fundamentales
+
+**Inteligencia de Negocios (BI)** es el conjunto de metodologías, aplicaciones y tecnologías que permiten reunir, depurar y transformar datos de los sistemas transaccionales en información estructurada para su análisis y conversión en conocimiento, apoyando la toma de decisiones en los negocios.
+
+#### Componentes del BI
+
+```mermaid
+graph TD
+    A[Fuentes de Datos] --> B[ETL]
+    B --> C[Almacén de Datos<br/>Data Warehouse]
+    C --> D[Cubos OLAP]
+    D --> E[Herramientas de Reporting]
+    D --> F[Herramientas de Análisis]
+    E --> G[Dashboards]
+    F --> G
+```
+
+**Elementos clave:**  
+
+- **ETL (Extract, Transform, Load)**: Proceso de extracción, transformación y carga de datos.
+- **Data Warehouse**: Almacén centralizado de datos históricos.  
+- **OLAP (Online Analytical Processing)**: Análisis multidimensional de datos.  
+- **Data Mining**: Descubrimiento de patrones en grandes volúmenes de datos.  
+- **Dashboards**: Cuadros de mando para visualización de KPIs.  
+
+#### Beneficios del BI en las Organizaciones.  
+
+- **Mejora en la toma de decisiones**: Basada en datos reales y actualizados.
+- **Identificación de oportunidades**: Detección de nuevas tendencias y mercados.
+- **Optimización de procesos**: Análisis de eficiencia operativa.
+- **Ventaja competitiva**: Conocimiento profundo del negocio y competencia.
+- **Reducción de costos**: Identificación de áreas de mejora.
+
+### 6.2. Evolución hacia el Big Data.
+
+#### Limitaciones de los Sistemas Tradicionales.
+
+Los sistemas de BI tradicionales presentaban limitaciones ante:  
+
+- Volúmenes masivos de datos (Terabytes a Petabytes)
+- Datos no estructurados (redes sociales, imágenes, videos)
+- Velocidad de generación de datos (tiempo real)
+- Variedad de fuentes de datos (dispositivos IoT, sensores)
+
+#### Definición de Big Data
+
+**Big Data** hace referencia a conjuntos de datos tan grandes y complejos que requieren aplicaciones informáticas no tradicionales de procesamiento de datos para su tratamiento.
+
+#### Las 5 V's del Big Data
+
+| Dimensión | Descripción | Ejemplo |
+|-----------|-------------|---------|
+| **Volumen** | Cantidad masiva de datos | Terabytes a Exabytes |
+| **Velocidad** | Rapidez de generación y procesamiento | Datos en tiempo real |
+| **Variedad** | Diferentes tipos y formatos de datos | Estructurados, semi-estructurados, no estructurados |
+| **Veracidad** | Calidad y confiabilidad de los datos | Fiabilidad de las fuentes |
+| **Valor** | Utilidad empresarial de los datos | Información accionable |
+
+### 6.3. Tecnologías principales.
+
+- **Hadoop**: Framework para procesamiento distribuido.
+- **Spark**: Motor de procesamiento en memoria.
+- **NoSQL Databases**: MongoDB, Cassandra, HBase.
+- **Cloud Platforms**: AWS, Azure, Google Cloud.
+- **Stream Processing**: Kafka, Flink, Storm.
+
+### 6.4 Diferencias entre BI Tradicional y Big Data
+
+| Aspecto | BI Tradicional | Big Data |
+|---------|----------------|----------|
+| **Volumen de datos** | GBs - TBs | TBs - PBs |
+| **Tipo de datos** | Mayormente estructurados | Estructurados y no estructurados |
+| **Velocidad** | Procesamiento por lotes | Tiempo real y por lotes |
+| **Costo** | Alto (licencias) | Reducido (open source) |
+| **Escalabilidad** | Vertical | Horizontal |
+
+### 6.5. Aplicaciones prácticas.
+
+**Retail y E-commerce:**  
+
+- Análisis de comportamiento de compra.
+- Recomendaciones personalizadas.
+- Optimización de inventario.
+- Detección de fraude.
+
+**Sector Salud:**  
+
+- Análisis de historiales médicos.
+- Investigación de enfermedades.
+- Medicina personalizada.
+- Monitoreo remoto de pacientes.
+
+**Banca y Finanzas:**  
+
+- Scoring crediticio.
+- Detección de fraudes.
+- Análisis de riesgo.
+- Trading algorítmico.
+
+**Manufactura:**
+
+- Mantenimiento predictivo.  
+- Optimización de cadena de suministro.  
+- Control de calidad.  
+- Internet de las Cosas (IoT). 
+
+### 6.6 Tendencias futuras.
+
+**Tecnologías emergentes:**  
+
+- **Inteligencia Artificial y Machine Learning**: Automatización del análisis.
+- **Edge Computing**: Procesamiento en dispositivos periféricos.
+- **Blockchain**: Mayor seguridad y trazabilidad.
+- **Real-Time Analytics**: Decisiones en tiempo real.
+
+**Nuevos roles profesionales:**  
+
+- Científico de datos (Data Scientist).
+- Ingeniero de datos (Data Engineer).
+- Arquitecto de datos (Data Architect).
+- Analista de business intelligence.
+
+**Impacto en la Toma de Decisiones.**
+
+La convergencia de BI y Big Data está transformando la forma en que las organizaciones toman decisiones:
+
+- **De reactivas a proactivas**: Predicción de tendencias.
+- **De intuitivas a basadas en datos**: Evidencia cuantitativa.
+- **De periódicas a continuas**: Monitoreo constante.
+- **De departamentales a organizacionales**: Visión 360°.
+
+
+
+La inteligencia de negocios y el big data representan la evolución natural de los sistemas de información empresarial. Mientras el BI se centra en el análisis de datos históricos para entender lo que pasó, el big data permite analizar lo que está pasando y predecir lo que podría pasar.
+
+La integración efectiva de estas tecnologías con los sistemas de bases de datos existentes es crucial para que las organizaciones puedan competir en la era digital, transformando los datos en información valiosa y accionable que impulse la innovación y el crecimiento empresarial.  
+
