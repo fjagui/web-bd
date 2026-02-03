@@ -1,4 +1,4 @@
-# Actividades. Administración de BD (DDL-DCL)
+# Actividades. Diseño físico e implementación de SGBDR.
 En la propuesta de solución, se valorará muy positivamente la inclusión de reglas de negocio no detalladas explícitamente, pero que resulten coherentes con los escenarios (ej. validar formatos de códigos, rangos de valores realistas,coherencia entre fechas, etc.).   
 Las aportaciones de este tipo deberán ser brevemente justificadas en la memoria de la actividad.
 

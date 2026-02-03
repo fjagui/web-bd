@@ -1,4 +1,4 @@
-# Administración de BD (DDL-DCL)
+# Diseño físico e implementación de SGBDR
 
 ## 1. Introducción al Diseño Físico de Bases de Datos
 
