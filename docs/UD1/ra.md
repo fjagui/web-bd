@@ -3,7 +3,7 @@ hide:
   - toc
 ---
 
-# Introducción a las bases de datos.
+# Gestión de bases de datos.
 ### Resultado de aprendizaje.
 **RA1.**Reconoce los elementos de las bases de datos analizando sus funciones y valorando la utilidad de los sistemas gestores.
 ### Criterios de evaluación.
