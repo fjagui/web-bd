@@ -3,9 +3,9 @@ hide:
   - toc
 ---
 
-# Introducción a las bases de datos.
+# Gestión de bases de datos.
 ### Resultado de aprendizaje.
-6. Diseña modelos relacionales normalizados interpretando diagramas entidad/relación.
+**RA6.**Diseña modelos relacionales normalizados interpretando diagramas entidad/relación.
 
 ### Criterios de evaluación:
 a) Se han utilizado herramientas gráficas para representar el diseño lógico.
